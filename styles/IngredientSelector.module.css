@@ -14,8 +14,31 @@
   border: 3px #de903a solid;
   width: 6rem;
   border-radius: 10px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+  display: inline-block;
+  padding: 0.5em 0.8em;
   color: #204f80;
+  cursor: pointer;
+}
+
+.meatButtons:hover {
+  transform: scale(1.2);
+  transition: all 0.3s ease-in-out;
+}
+
+.selectedMeat {
+  border: 3px #204f80 solid;
+  background-color: #204f80;
+  width: 6rem;
+  border-radius: 10px;
+  display: inline-block;
+  padding: 0.5em 0.8em;
+  color: #de903a;
+  cursor: pointer;
+}
+
+.radioInput {
+  appearance: none;
+  margin: 0;
+  position: absolute;
+  opacity: 0;
 }

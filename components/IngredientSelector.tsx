@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState, FC } from "react";
-import { useForm, SubmitHandler } from "react-hook-form";
+import React, { useState, FC, ChangeEvent } from "react";
+import { useForm, SubmitHandler, useWatch, Control } from "react-hook-form";
 import styles from "@/styles/IngredientSelector.module.css";
 
 type Inputs = {
@@ -15,9 +15,17 @@ type Inputs = {
 const IngredientSelector: FC = () => {
   const {
     register,
+    control,
     handleSubmit,
     formState: { errors },
   } = useForm<Inputs>();
+
+  const [selectedProtein, setSelectedProtein] = useState("none");
+
+  const handleOptionChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setSelectedProtein(event.target.value);
+    console.log(event.target.value);
+  };
 
   handleSubmit((data) => console.log(data));
 
@@ -25,41 +33,37 @@ const IngredientSelector: FC = () => {
     <div className={styles.container}>
       <h3>Ingredient Selector</h3>
       <div>
-        <div className={styles.inputs}>
-          <label>Protein</label>
-          <div>
-            <div className={styles.meatButtons}>
-              <input type="radio" name="chicken" value="chicken" />
+        <div>
+          <h2>Protein</h2>
+
+          <div className={styles.inputs}>
+            <label className={styles.meatButtons}>
+              <input
+                className={styles.radioInput}
+                type="radio"
+                name="protein"
+                value="chicken"
+                checked={selectedProtein === "chicken"}
+                onChange={handleOptionChange}
+              />
               <h3>chicken</h3>
-            </div>
+            </label>
           </div>
-          <select defaultValue={"select a protein"} {...register("protein")}>
-            <option value="chicken">chicken</option>
-            <option value="turkey">turkey</option>
-            <option value="beef">beef</option>
-            <option value="pork">pork</option>
-          </select>
+          <div className={styles.inputs}>
+            <label className={styles.meatButtons}>
+              <input
+                className={styles.radioInput}
+                type="radio"
+                name="protein"
+                value="beef"
+                checked={selectedProtein === "beef"}
+                onChange={handleOptionChange}
+              />
+              <h3>beef</h3>
+            </label>
+          </div>
         </div>
-        <div className={styles.inputs}>
-          <label>Carb</label>
-          <input {...register("carb")} />
-        </div>
-        <div className={styles.inputs}>
-          <label>Veg</label>
-          <input {...register("veg")} />
-        </div>
-        <div className={styles.inputs}>
-          <label>Oil</label>
-          <input {...register("oil")} />
-        </div>
-        <div className={styles.inputs}>
-          <label>Vitamin Mineral Mix</label>
-          <input {...register("vitmin")} />
-        </div>
-        <div className={styles.inputs}>
-          <label>Protein</label>
-          <input {...register("protein")} />
-        </div>
+        <h3>Selected Protein: {selectedProtein}</h3>
       </div>
     </div>
   );
