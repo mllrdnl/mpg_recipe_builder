@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { StackProvider, StackTheme } from "@stackframe/stack";
+import { stackClientApp } from "../stack/client";
 import { Geist, Geist_Mono, Fredoka, Walter_Turncoat } from "next/font/google";
 import "./globals.css";
 
@@ -32,9 +34,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${fredoka.className} ${walterTc.className}`}>
+      <body className={`${fredoka.className} ${walterTc.className}`}><StackProvider app={stackClientApp}><StackTheme>
         {children}
-      </body>
+      </StackTheme></StackProvider></body>
     </html>
   );
 }

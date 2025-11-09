@@ -1,0 +1,20 @@
+.signin {
+  display: flex;
+  min-height: 100;
+  align-items: center;
+  justify-content: center;
+}
+
+.homeBtn {
+  display: flex;
+  flex-direction: row;
+  border: 1px white solid;
+  border-radius: 10px;
+  margin-top: 20px;
+  background-color: whitesmoke;
+  width: 4rem;
+  justify-content: center;
+  font-weight: bolder;
+  font-size: 1.2rem;
+  padding: 0.2rem 3rem;
+}
