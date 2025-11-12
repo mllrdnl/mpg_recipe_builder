@@ -6,10 +6,112 @@
 
 generator client {
   provider = "prisma-client"
-  // output   = "../lib/generated/prisma"
+  output   = "../generated/prisma"
 }
 
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+}
+
+model Ingredient {
+  id String @id @default(cuid())
+  fdc_id Int @unique
+  ndb_id Int @unique
+  name String
+  category String
+  water_g Decimal @db.Decimal(10,4)
+  water_id Int @unique
+  energy_agf_kcal Decimal @db.Decimal(10,4)
+  energy_asf_id Int @unique
+  nitrogen_g Decimal @db.Decimal(10,4)
+  nitrogen_id Int @unique
+  protein_g Decimal @db.Decimal(10,4)
+  protein_id Int @unique
+  total_lipid_g Decimal @db.Decimal(10,4)
+  total_lipid_id Int @unique
+  ash_g Decimal @db.Decimal(10,4)
+  ash_id Int @unique
+  carbohydrates_g Decimal @db.Decimal(10,4)
+  carbohydrates_id Int @unique
+  calcium_mg Decimal @db.Decimal(10,4)
+  calcium_id Int @unique
+  iron_mg Decimal @db.Decimal(10,4)
+  iron_id Int @unique
+  magnesium_mg Decimal @db.Decimal(10,4)
+  magnesium_id Int @unique
+  phosphorus_mg Decimal @db.Decimal(10,4)
+  phosphorus_id Int @unique
+  potassium_mg Decimal @db.Decimal(10,4)
+  potassium_id Int @unique
+  sodium_mg Decimal @db.Decimal(10,4)
+  sodium_id Int @unique
+  zinc_mg Decimal @db.Decimal(10,4)
+  zinc_id Int @unique
+  copper_mg Decimal @db.Decimal(10,4)
+  copper_id Int @unique
+  manganese_mg Decimal? @db.Decimal(10,4)
+  manganese_id Int @unique
+  fatty_acids_total_saturated_g Decimal? @db.Decimal(10,4)
+  fatty_acids_total_saturated_id Int @unique
+  fatty_acids_total_monosaturated_g Decimal? @db.Decimal(10,4)
+  fatty_acids_total_monosaturated_id Int @unique
+  fatty_acids_total_polyunsaturated_g Decimal? @db.Decimal(10,4)
+  fatty_acids_total_polyunsaturated_id Int @unique
+  fatty_acids_total_trans_g Decimal? @db.Decimal(10,4)
+  fatty_acids_total_trans_id Int @unique
+  cholesterol_mg Decimal? @db.Decimal(10,4)
+  cholesterol_id Int @unique
+  fiber_total_dietary_g Decimal? @db.Decimal(10,4)
+  fiber_total_dietary_id Decimal? @db.Decimal(10,4) @unique
+  carbs_by_difference_g Decimal? @db.Decimal(10,4)
+  carbs_by_difference_id Int? @unique
+  tot_diet_fiber_aoac_g Decimal? @db.Decimal(10,4)
+  tot_diet_fiber_aoac_id Int? @unique
+  hmwdf_g Decimal? @db.Decimal(10,4)
+  hmwdf_id Int? @unique
+  lmwdf_g Decimal? @db.Decimal(10,4)
+  lmwdf_id Int? @unique
+  starch_g Decimal? @db.Decimal(10,4)
+  starch_id Int? @unique
+  selenium_ug Decimal? @db.Decimal(10,4)
+  selenium_id Int? @unique
+  molybdenum_ug Decimal? @db.Decimal(10,4)
+  molybdenum_id Int? @unique
+  thiamin_mg Decimal? @db.Decimal(10,4)
+  thiamin_id Int? @unique
+  niacin_mg Decimal? @db.Decimal(10,4)
+  niacin_id Int? @unique
+  vitamin_b6_mg Decimal? @db.Decimal(10,4)
+  vitamin_b6_id Int? @unique
+  biotin_ug Decimal? @db.Decimal(10,4)
+  biotin_id Int? @unique
+  beta_glucan_g Decimal? @db.Decimal(10,4)
+  beta_glucan_id Int? @unique
+  folate_total_ug Decimal? @db.Decimal(10,4)
+  folate_total_id Int? @unique
+  sugars_total_g Decimal? @db.Decimal(10,4)
+  sugars_total_id Int? @unique
+  sucrose_g Decimal? @db.Decimal(10,4)
+  sucrose_id Int? @unique
+  glucose_g Decimal? @db.Decimal(10,4)
+  glucose_id Int? @unique
+  fructose_g Decimal? @db.Decimal(10,4)
+  fructose_id Int? @unique
+  lactose_g Decimal? @db.Decimal(10,4)
+  lactose_id Int? @unique
+  vit_k_dihydro_ug Decimal? @db.Decimal(10,4)
+  vit_k_dihydro_id Int? @unique
+  vit_k_mena_ug Decimal? @db.Decimal(10,4)
+  vit_k_mena_id Int? @unique
+  vit_k_phyll_ug Decimal? @db.Decimal(10,4)
+  vit_k_phyll_id Int? @unique
+  vitamin_c_tot_aa_mg Decimal? @db.Decimal(10,4)
+  vitamin_c_tot_aa_id Int? @unique
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([name, category])
+  
 }
