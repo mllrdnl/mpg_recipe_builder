@@ -1,0 +1,42 @@
+.ingredientpage {
+  display: flex;
+  flex-direction: column;
+}
+
+.selectorRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.selector {
+  display: flex;
+  flex-direction: column;
+  border: 1px #d3d3d3 solid;
+  border-radius: 10px;
+  width: 60%;
+}
+
+.categorySelector {
+  display: flex;
+  flex-direction: row;
+}
+
+.category {
+  display: flex;
+  flex-direction: column;
+  border: 1px #515151 solid;
+  border-radius: 10px;
+  height: 5rem;
+  width: 25%;
+  justify-content: center;
+  align-items: center;
+}
+
+.gauge {
+  display: flex;
+  flex-direction: column;
+  border: 1px #d3d3d3 solid;
+  border-radius: 10px;
+  width: 30%;
+}

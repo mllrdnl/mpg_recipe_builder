@@ -1,0 +1,33 @@
+.barContainer {
+  display: flex;
+  flex-direction: row;
+  border: 1px #d3d3d3 solid;
+  border-radius: 10px;
+  margin: 1rem auto;
+  width: fit-content;
+}
+
+.stepBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+
+.selected {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  color: #eb8db5;
+}
+
+.dash {
+  height: 6px;
+  width: 50px;
+  background-color: #d3d3d3;
+  border: 1px #d3d3d3 solid;
+  border-radius: 10px;
+}
